@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2DJS Documentation</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #1e1e1e; color: #f0f0f0; }
+    header { background: #111; padding: 20px; text-align: center; }
+    header h1 { margin: 0; color: #4cafef; }
+    nav { background: #222; padding: 10px; display: flex; gap: 15px; justify-content: center; }
+    nav a { color: #fff; text-decoration: none; padding: 5px 10px; border-radius: 5px; }
+    nav a:hover { background: #4cafef; color: #111; }
+    .container { display: flex; }
+    aside { width: 250px; background: #181818; padding: 20px; }
+    aside h2 { font-size: 16px; cursor: pointer; padding: 8px 0; margin: 0; color: #4cafef; }
+    aside ul { list-style: none; padding-left: 10px; margin: 0; display: none; }
+    aside li { margin: 6px 0; }
+    aside a { color: #aaa; text-decoration: none; }
+    aside a:hover { color: #4cafef; }
+    main { flex: 1; padding: 20px; }
+    section { margin-bottom: 40px; }
+    section h2 { color: #4cafef; border-bottom: 1px solid #333; padding-bottom: 5px; }
+    pre { background: #111; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    code { color: #4cafef; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>2DJS Documentation</h1>
+    <p>A lightweight HTML5 2D engine</p>
+  </header>
+  <nav>
+    <a href="#engine">Engine</a>
+    <a href="#scene">Scene</a>
+    <a href="#player">Player</a>
+    <a href="#ui">UI</a>
+    <a href="#tutorials">Tutorials</a>
+    <a href="#info">Info</a>
+  </nav>
+  <div class="container">
+    <aside>
+      <h2 onclick="toggleMenu('modules')">Modules</h2>
+      <ul id="modules">
+        <li><a href="#engine">Engine</a></li>
+        <li><a href="#scene">Scene</a></li>
+        <li><a href="#player">Player</a></li>
+        <li><a href="#camera">Camera</a></li>
+        <li><a href="#mesh">Mesh</a></li>
+        <li><a href="#dialogue">Dialogue</a></li>
+        <li><a href="#trigger">Trigger</a></li>
+        <li><a href="#render">Render</a></li>
+        <li><a href="#ui">UI</a></li>
+      </ul>
+      <h2 onclick="toggleMenu('resources')">Resources</h2>
+      <ul id="resources">
+        <li><a href="#tutorials">Tutorials</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#info">Info</a></li>
+      </ul>
+    </aside>
+    <main>
+      <section id="engine">
+        <h2>Engine</h2>
+        <pre><code>const engine = new 2DJS.Engine("game", 960, 540);
+engine.addScene(scene);
+engine.start();</code></pre>
+      </section>
+
+      <section id="scene">
+        <h2>Scene</h2>
+        <pre><code>const scene = new 2DJS.Scene("Level1");
+scene.add(player);
+engine.addScene(scene);</code></pre>
+      </section>
+
+      <section id="player">
+        <h2>Player</h2>
+        <pre><code>const player = new 2DJS.Player(100, 100);
+player.rigid(true);
+player.setControls({ left:"a", right:"d", up:"w" });</code></pre>
+      </section>
+
+      <section id="ui">
+        <h2>UI</h2>
+        <pre><code>const button = new 2DJS.UI.Create("button", {
+  text: "Play",
+  x: 100, y: 50, width: 120, height: 40
+});
+scene.add(button);</code></pre>
+      </section>
+
+      <section id="tutorials">
+        <h2>Tutorials</h2>
+        <ul>
+          <li>Getting Started with Engine & Scene</li>
+          <li>Adding a Player and Controls</li>
+          <li>Using Camera and Triggers</li>
+          <li>Building a Simple UI</li>
+        </ul>
+      </section>
+
+      <section id="info">
+        <h2>Info</h2>
+        <ul>
+          <li>Version: 0.1 Beta</li>
+          <li>License: MIT</li>
+          <li>Author: 2DJS Community</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script>
+    function toggleMenu(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
